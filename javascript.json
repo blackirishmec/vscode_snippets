@@ -1,0 +1,470 @@
+{
+    "HTML Inline Row Element": {
+        "prefix": "hire",
+        "body": [
+            "<div class='row$1'>$0</div>"
+        ],
+        "description": "Create a row using inline HTML in Javascript."
+    },
+    "HTML Inline Col Element": {
+        "prefix": "hice",
+        "body": [
+            "<div class='col$1'>$0</div>"
+        ],
+        "description": "Create a col using inline HTML in Javascript."
+    },
+    "React Native Context Provider": {
+        "prefix": "rncp",
+        "body": [
+            "import React, { createContext } from 'react';",
+            "",
+            "export const ${TM_FILENAME_BASE/(.*)Provider$/${1:/capitalize}/}Context = createContext();",
+            "",
+            "export const ${TM_FILENAME_BASE/(.*)Provider$/${1:/capitalize}/}Provider = ({ children }) => {",
+            "\t$0",
+            "\t",
+            "\treturn (",
+            "\t\t<${TM_FILENAME_BASE/(.*)Provider$/${1:/capitalize}/}Context.Provider value={{}}>",
+            "\t\t\t{children}",
+            "\t\t</${TM_FILENAME_BASE/(.*)Provider$/${1:/capitalize}/}Context.Provider>",
+            "\t);",
+            "};",
+            ""
+        ],
+        "description": "Initialize a React Native Context Provider."
+    },
+    "jQuery Dynamic Component Definition": {
+        "prefix": "jndc",
+        "body": [
+          "// Dynamic $1:",
+          "$.fn.$2 = function(programmaticOptions) {",
+          "\tconst defaultSettings = {$3};",
+          "",
+          "\treturn this.each(function() {",
+          "\t\tconst \\$Element = $(this);",
+          "\t",
+          "\t\tconst manualSettings = \\$Element.attr('settings') !== undefined ? JSON.parse(\\$Element.attr('settings')) : {};",
+          "\t",
+          "\t\tconst componentSettings = {",
+          "\t\tchildren: $Element.html(),",
+          "\t\t\t...defaultSettings,",
+          "\t\t\t...manualSettings,",
+          "\t\t\t...programmaticOptions",
+          "\t\t};",
+          "\t",
+          "\t\t\\$Element.html( /*html*/ `",
+          "\t\t\t$4",
+          "\t\t`);",
+          "\t",
+          "\t\t\\$Element.replaceWith(\\$Element.html());",
+          "\t})$5;",
+          "};"
+        ],
+        "description": "Create a new dynamic component using jQuery."
+    },
+    "Javascript Testing Block": {
+        "body": [
+            "// ############################ vvv TESTING vvv ################################",
+            "",
+            "\t// [$1] $2:",
+            "\t\t$0",
+            "",
+            "// ############################ ^^^ TESTING ^^^ ################################",
+            ""
+        ],
+        "description": "Create a highly visible and distinct block for testing work.*",
+        "prefix": "jstb"
+    },
+    "Javascript Console Log String": {
+        "prefix": "cls",
+        "body": [
+            "console.log('$1');$0"
+        ],
+        "description": "Console log a string."
+    },
+    "Javascript Testing Block New Entry": {
+        "body": [
+            "",
+            "// [$1] $2:",
+            "\t$0"
+        ],
+        "description": "Create a new entry in the testing block.*",
+        "prefix": "jstbne"
+    },
+    "jQuery Add Dynamic Dom Element Block": {
+        "body": [
+            "addDynamicDomElement(${1:parent element},${2:template child element},{",
+            "\t// Modify added template child element:",
+            "\t\t'${3:child element of template child element}':{",
+            "\t\t    '${4:attribute name}':${5:attribute value}",
+            "\t\t},",
+            "},function(){",
+            "\t// Callback function:",
+            "\t\t$0",
+            "});"
+        ],
+        "description": "A Jquery addDynamicDomElement() function block.*",
+        "prefix": "jqadde"
+    },
+    "jQuery Ajax Call": {
+        "body": [
+            "$.ajax({",
+            "\ttype: ${1:\"POST\"},",
+            "\turl: \"${2:url}\",",
+            "\tdata: {",
+            "\t\t${3:key}: ${4:value,}",
+            "\t},",
+            "\tsuccess: function (msg) {",
+            "\t\tvar response = JSON.parse(msg);",
+            "\t\t",
+            "\t\tif(response.success == false)",
+            "\t\t{",
+            "\t\t\t${5:console.log(\"[ERROR]: The controller function failed while executing!\");}",
+            "\t\t}",
+            "\t\telse",
+            "\t\t{",
+            "\t\t\t${7:console.log(\"Success!\");}$0",
+            "\t\t}",
+            "\t},",
+            "\terror: function(msg) {",
+            "\t\t${6:console.log(\"[ERROR]: The controller function was not able to be called!\");}",
+            "\t}",
+            "});"
+        ],
+        "description": "Create a jQuery Ajax call statement.*",
+        "prefix": "jqajc"
+    },
+    "jQuery Array For Each Loop": {
+        "body": [
+            "for(const ${2:key} in ${1:array})",
+            "{",
+            "\tif(${1:array}.hasOwnProperty(${2:key}))",
+            "\t{",
+            "\t\tconst ${3:value} = ${1:array}[${2:key}];",
+            "\t\t",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Create a jQuery \"for each\"(for...in) loop to iterate over the elements in an array.*",
+        "prefix": "jqafe"
+    },
+    "jQuery Closest": {
+        "body": [
+            ".closest('$1')$0"
+        ],
+        "description": "Create a jQuery closest method to search for an ancestor element.*",
+        "prefix": "jqc"
+    },
+    "jQuery DOM For Each Loop": {
+        "body": [
+            "for(const ${2:key} in ${1:array})",
+            "{",
+            "\tif((${1:array}.hasOwnProperty(${2:key})) && (${2:key} <= ${1:array}.length))",
+            "\t{",
+            "\t\tconst ${3:value} = ${1:array}[${2:key}];",
+            "\t\t",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Create a jQuery \"for each\" loop to iterate over elements in the DOM.*",
+        "prefix": "jqdfe"
+    },
+    "jQuery DOM Selector": {
+        "body": [
+            "$('$1')$0"
+        ],
+        "description": "Create a jQuery 'DOM' element selector.*",
+        "prefix": "jqds"
+    },
+    "jQuery Debounce Handler": {
+        "body": [
+            "debounceHandler(${1:seconds}, $(this), function(passed_this) {",
+            "\t$0",
+            "});"
+        ],
+        "description": "Create a jQuery debounce handler.*",
+        "prefix": "jqdbh"
+    },
+    "jQuery Debugger": {
+        "body": [
+            "debugger; // <=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= DEBUGGER <=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= $0"
+        ],
+        "description": "Create a jQuery debugger for Chrome.*",
+        "prefix": "jsd"
+    },
+    "jQuery Debugger w/ Print": {
+        "body": [
+            "console.log(\"$1 =\", $1);",
+            "debugger; // <=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= DEBUGGER <=@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@= $0"
+        ],
+        "description": "Create a jQuery debugger for Chrome that print's a variable to the console.*",
+        "prefix": "jqdp"
+    },
+    "jQuery Delegate Event Handler": {
+        "body": [
+            "$(document).delegate('$1','$2', function(event) {",
+            "\t$0",
+            "});"
+        ],
+        "description": "Create a jQuery delegation event handler.*",
+        "prefix": "jqde"
+    },
+    "jQuery Document Find": {
+        "body": [
+            "\\$(document).find('$1');$0"
+        ],
+        "description": "jquery document find",
+        "prefix": "jqdf"
+    },
+    "jQuery Document Ready": {
+        "body": [
+            "\t\\$(document).ready(function () {",
+            "\t\t$0",
+            "\t});"
+        ],
+        "description": "Create a jQuery Document Ready block.*",
+        "prefix": "jqdr"
+    },
+    "jQuery Echo PHP String Variable": {
+        "body": [
+            "\"<?php echo \\$$1; ?>\"$0"
+        ],
+        "description": "Create a jQuery statement that will echo a PHP string variable inside quotation marks.",
+        "prefix": "jqepsv"
+    },
+    "jQuery Event Handler Text Definition": {
+        "body": [
+            "// Handle a ${1|CHANGE,CLICK,FOCUSIN,FOCUSOUT,KEYUP,MOUSEENTER,MOUSELEAVE,MOUSEOUT,MOUSEOVER|} on the $2:",
+            "\t$0"
+        ],
+        "description": "Create a text definition for an event handler in jQuery.*",
+        "prefix": "jqehtd"
+    },
+    "jQuery Events Block": {
+        "body": [
+            "// ********************************** v EVENTS v ********************************** //",
+            "\t// $1",
+            "\t\t$0",
+            "\t",
+            "// ********************************** ^ EVENTS ^ ********************************** //"
+        ],
+        "description": "Create a Events block for jQuery.*",
+        "prefix": "jqeb"
+    },
+    "jQuery Find": {
+        "body": [
+            ".find('$1')$0"
+        ],
+        "description": "Create a jQuery find method to search descendent elements.*",
+        "prefix": "jqf"
+    },
+    "jQuery For Each": {
+        "body": [
+            "forEach(${1:collection},function(this_${2:key}_index,this_${2:value})",
+            "{",
+            "\t$0",
+            "});"
+        ],
+        "description": "Create a jQuery foreach loop to iterate over a collection.*",
+        "prefix": "jqfe"
+    },
+    "jQuery Helper Functions Block": {
+        "body": [
+            "// ***************************** v HELPER FUNCTIONS v ***************************** //",
+            "\t// $1",
+            "\t\t$0",
+            "\t",
+            "// ***************************** ^ HELPER FUNCTIONS ^ ***************************** //"
+        ],
+        "description": "Create a Helper Functions block for jQuery.*",
+        "prefix": "jqhfb"
+    },
+    "Javascript If Block": {
+        "body": [
+            "if($1)",
+            "{",
+            "\t$0",
+            "${3|},}\nelse\n{\n\t\n}|}"
+        ],
+        "description": "Create an if(/else) statement.*",
+        "prefix": "jsi"
+    },
+    "jQuery Initialize Block": {
+        "body": [
+            "// ******************************** v INITIALIZE v ******************************** //",
+            "\t// Variables:",
+            "\t\t$0",
+            "\t",
+            "\t// States:",
+            "\t\t// ",
+            "\t\t\t ",
+            "\t",
+            "// ******************************** ^ INITIALIZE ^ ******************************** //"
+        ],
+        "description": "Create an Initialize block for jQuery.*",
+        "prefix": "jqib"
+    },
+    "jQuery New Variable": {
+        "body": [
+            "var $1 = $0"
+        ],
+        "description": "Create a new jQuery variable and assign it a value.*",
+        "prefix": "jqnv"
+    },
+    "jQuery New Variable with Print": {
+        "body": [
+            "var $1 = $0",
+            "console.log('$1 =', $1);"
+        ],
+        "description": "Create a new jQuery variable and assign it a value, and then print to console.*",
+        "prefix": "jqnvp"
+    },
+    "jQuery On": {
+        "body": [
+            ".on('$1', function() {",
+            "\t$0",
+            "});"
+        ],
+        "description": "Create jQuery 'on' event handler.",
+        "prefix": "jqo"
+    },
+    "jQuery On Event": {
+        "body": [
+            "${1:$('$2')}.on('${3|change,click,focusin,focusout,keyup,mouseenter,mouseleave,mouseout,mouseover|}', function() {",
+            "\t$0",
+            "});"
+        ],
+        "description": "Create a jQuery handler for an event on an element.*",
+        "prefix": "jqoe"
+    },
+    "jQuery Print": {
+        "body": [
+            "console.log(\"$1\");$0"
+        ],
+        "description": "Create a console log action to print something.*",
+        "prefix": "jqp"
+    },
+    "jQuery Print Variable": {
+        "body": [
+            "console.log(\"$1 =\", $1);$0"
+        ],
+        "description": "Create a console log action to print a variable and its value.*",
+        "prefix": "jqpv"
+    },
+    "jQuery Siblings": {
+        "body": [
+            ".siblings($1)$0"
+        ],
+        "description": "Create a jQuery Siblings method to search for sibling elements.*",
+        "prefix": "jqs"
+    },
+    "jQuery Text Method": {
+        "body": [
+            ".text($1)$0"
+        ],
+        "description": "Create a jQuery text method to interact with the text of an element.*",
+        "prefix": "jqt"
+    },
+    "jQuery This Selector": {
+        "body": [
+            "$(this)$0"
+        ],
+        "description": "Create a JQuery 'this' selector.",
+        "prefix": "jqth"
+    },
+    "jQuery Todo Comment": {
+        "body": [
+            "// [todo] ($1) $0"
+        ],
+        "description": "Create a jQuery [todo] comment.*",
+        "prefix": "jqto"
+    },
+    "jQuery Toggle Class": {
+        "body": [
+            ".toggleClass('$1',$2);$0"
+        ],
+        "description": "Create new jQuery toggleClass action.",
+        "prefix": "jqtc"
+    },
+    "jQuery Trigger Event": {
+        "body": [
+            ".trigger('${1|click,keyup,mouseover,mouseout|}')$0"
+        ],
+        "description": "Create a jQuery 'trigger' method to trigger an event on an object.*",
+        "prefix": "jqte"
+    },
+    "jQuery Variable Selector": {
+        "body": [
+            "$($1)$0"
+        ],
+        "description": "Create a jQuery selector for a jQuery variable.*",
+        "prefix": "jqvs"
+    },
+    "jquerySentimentAnalysisGetArray": {
+        "body": [
+            "var $1 = <?php if(Dinkly::getCurrentView() == 'analyze_sentiment'){echo json_encode(\\$$2);} else if(Dinkly::getCurrentView() == 'customer_analysis') {echo json_encode(\\$$3);}; ?>;$0"
+        ],
+        "description": "jquery Sentiment Analysis pages get array",
+        "prefix": "jqsaga"
+    },
+    "jqueryarrayeach": {
+        "body": [
+            "$.each($1, function(index, value_of_element) {",
+            "\tvar this_element = value_of_element;",
+            "",
+            "\t$0",
+            "});"
+        ],
+        "description": "Create a jQuery loop to iterate over the elements of an array.*",
+        "prefix": "jqae"
+    },
+    "jquerynewarray": {
+        "body": [
+            "var $1 = [$2];$0"
+        ],
+        "description": "jquery new array tag",
+        "prefix": "jqna"
+    },
+    "jqueryonchange": {
+        "body": [
+            "$(document).on('change','$1', function() {",
+            "\t$0",
+            "});"
+        ],
+        "description": "jquery on change tag",
+        "prefix": "jqoch"
+    },
+    "jqueryonclick": {
+        "body": [
+            "$(document).on('click','$1', function() {",
+            "\t$0",
+            "});"
+        ],
+        "description": "jquery on click tag",
+        "prefix": "jqocl"
+    },
+    "jqueryphpgetphparray": {
+        "body": [
+            // "<?php echo json_encode(\\$$1); ?>;$0"
+            "var $1 = <?php echo ((isset(\\$$1)) && (\\$$1 != array())) ? json_encode(\\$$1) : \"[]\"; ?>;$0"
+        ],
+        "description": "jquery get php array tag",
+        "prefix": "jqgpa"
+    },
+    "jqueryphpgetphpvariable": {
+        "body": [
+            "var $1 = '<?php echo (isset(\\$$1)) ? \\$$1 : \"\"; ?>';$0"
+        ],
+        "description": "jquery get php variable tag",
+        "prefix": "jqgpv"
+    },
+    "jquerytoggleClassDispNone": {
+        "body": [
+            ".toggleClass('disp-none',$2);$0"
+        ],
+        "description": "jquery toggleClass disp-none tag",
+        "prefix": "jqtogdn"
+    }
+}

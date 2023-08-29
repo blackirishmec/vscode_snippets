@@ -1,0 +1,56 @@
+{
+    "YAML Boolean Tag": {
+        "body": [
+            "- $1: { type: boolean, allow_null: ${4:true} }$0"
+        ],
+        "description": "Create a boolean type YAML tag.*",
+        "prefix": "ybt"
+    },
+    "YAML Datetime Tag": {
+        "body": [
+            "- $1: { type: datetime, allow_null: ${4:true} }$0"
+        ],
+        "description": "Create a datetime typed YAML tag.*",
+        "prefix": "ydt"
+    },
+    "YAML Int Tag": {
+        "body": [
+            "- $1: { type: int, allow_null: ${2:true} }$0"
+        ],
+        "description": "Create a int type YAML tag.*",
+        "prefix": "yit"
+    },
+    "YAML New File": {
+        "body": [
+            "table_name: $1",
+            "registry:",
+            "  - id",
+            "  - created_at",
+            "  - updated_at",
+            "  $0"
+        ],
+        "description": "Create the body of a new YAML schema.*",
+        "prefix": "ynf"
+    },
+    "YAML Text Tag": {
+        "body": [
+            "- $1: { type: text, allow_null: ${2:true} }$0"
+        ],
+        "description": "Create a text type YAML tag.*",
+        "prefix": "ytt"
+    },
+    "YAML Varchar Tag": {
+        "body": [
+            "- $1: { type: varchar, length: ${2:64}, allow_null: ${4:true} }$0"
+        ],
+        "description": "Create a varchar type YAML tag.*",
+        "prefix": "yvt"
+    },
+    "YAML Weak Typed Tag": {
+        "body": [
+            "- $1: { type: $2, length: $3, allow_null: ${4:true} }$0"
+        ],
+        "description": "Create a weak typed yml tag.*",
+        "prefix": "ywt"
+    }
+}

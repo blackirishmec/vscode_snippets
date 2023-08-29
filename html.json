@@ -1,0 +1,333 @@
+{
+	// Place your snippets for html here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+    // "HTML Bootstrap Column": {
+    //     "body": [
+    //         "<div class=\"col p-0$1\">",
+    //         "\t",
+    //         "</div>$0"
+    //     ],
+    //     "description": "Create a bootstrap enabled HTML column div element.",
+    //     "prefix": "hbc"
+    // },
+	"HTML PHP New Laravel Class File": {
+		"prefix": "hpnlcf",
+		"body": [
+			"<?php",
+			"",
+			"namespace App\\Services;",
+			"",
+			"class $TM_FILENAME_BASE",
+			"{",
+			"\t$0",
+			"}",
+			"",
+		],
+		"description": "."
+	},
+	"HTML PHP New Laravel Interface File": {
+		"prefix": "hpnlif",
+		"body": [
+			"<?php",
+			"",
+			"namespace App\\Services;",
+			"",
+			"interface $TM_FILENAME_BASE",
+			"{",
+			"\t$0",
+			"}",
+			"",
+		],
+		"description": "."
+	},
+    "HTML Bootstrap Container": {
+        "body": [
+            "<div class=\"container$1\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "Create a bootstrap enabled HTML container div element.",
+        "prefix": "container"
+    },
+    "HTML Bootstrap Column": {
+        "body": [
+            "<div class=\"col$1\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "Create a bootstrap enabled HTML column div element.",
+        "prefix": "col"
+    },
+    "HTML Bootstrap Custom Element": {
+        "prefix": "hbce",
+        "body": [
+            "<${1|div,button,p,h1,h2,h3,h4,h5,span|} class=\"${2|container,row,col,modal|} ${3| ,m-0,mt-0,mr-0,mb-0,ml-0|} ${4| ,p-0,pt-0,pr-0,pb-0,pl-0|} ${5| ,h-100,h-90,h-85,h-75,h-50,h-25,h-15,h-10|} ${6| ,w-100,w-75,w-50,w-25|} ${7| ,d-flex|} ${8| ,align-items-center,align-items-end|} ${9| ,justify-content-center,justify-content-end|} $10\">$0</$1>"
+        ],
+        "description": "Create a bootstrap defined DOM element.*"
+    },
+    // "HTML Bootstrap Row": {
+    //     "body": [
+    //         "<div class=\"row m-0$1\">",
+    //         "\t",
+    //         "</div>$0"
+    //     ],
+    //     "description": "Create a bootstrap enabled HTML row div element.",
+    //     "prefix": "hbr"
+    // },
+    "HTML Bootstrap Row": {
+        "body": [
+            "<div class=\"row$1\">",
+            "\t$0",
+            "</div>"
+        ],
+        "description": "Create a bootstrap enabled HTML row div element.",
+        "prefix": "row"
+    },
+    "HTML Button": {
+        "prefix": "hb",
+        "body": [
+            "<button type=\"${1|button,submit|}\" name=\"${2/(.*)/${1:/downcase}/}\" class=\"btn ${2/(.*)/${1:/downcase}/}\">${3:$2}</button>"
+        ],
+        "description": "Create an HTML button.*"
+    },
+    "HTML jQuery Block": {
+        "prefix": "hjq",
+        "body": [
+            "<script type=\"text/javascript\"> $(document).ready(function() {",
+            "\t// ***************************** v HELPER FUNCTIONS v ***************************** //",
+            "\t\t// ",
+            "\t\t\t",
+            "\t\t",
+            "\t// ***************************** ^ HELPER FUNCTIONS ^ ***************************** //",
+            "\t",
+            "\t// ******************************** v INITIALIZE v ******************************** //",
+            "\t\t// Variables:",
+            "\t\t\t// Controller:",
+            "\t\t\t\t$0",
+            "\t\t\t",
+            "\t\t\t// DOM:",
+            "\t\t\t\t",
+            "\t\t\t",
+            "\t\t\t// Custom:",
+            "\t\t\t\t",
+            "\t\t\t",
+            "\t\t// States:",
+            "\t\t\t// ",
+            "\t\t\t\t",
+            "\t\t// Plugins:",
+            "\t\t\t// ",
+            "\t\t\t\t",
+            "\t\t\t",
+            "\t// ******************************** ^ INITIALIZE ^ ******************************** //",
+            "\t",
+            "\t// ********************************** v EVENTS v ********************************** //",
+            "\t\t// ",
+            "\t\t\t",
+            "\t\t",
+            "\t// ********************************** ^ EVENTS ^ ********************************** //",
+            "}); </script>"
+        ],
+        "description": "Create an HTML script block with a javascript document ready block inside and a prebuilt jQuery template.*"
+    },
+    "HTML PHP Debug": {
+        "body": [
+            "<?php \\$debug = null; ?>"
+        ],
+        "description": "Create a PHP debug tag.*",
+        "prefix": "hpd"
+    },
+    "HTML PHP Echo": {
+        "body": [
+            "<?php echo $1; ?>"
+        ],
+        "description": "Create a PHP echo tag to print the contents of a PHP varible.*",
+        "prefix": "hpe"
+    },
+    "HTML PHP For": {
+        "body": [
+            "<?php for(\\$$1=$2; \\$$1<=$4; \\$$1++) { ?>",
+            "\t$0",
+            "<?php }; ?>"
+        ],
+        "description": "Create a PHP for loop to iterate a set number of times.*",
+        "prefix": "hpf"
+    },
+    "HTML PHP For Each": {
+        "body": [
+            "<?php if((isset(\\$$1)) && (\\$$1 != array())): ?>",
+            "\t<?php foreach(\\$$1 as \\$this_$2_index => \\$this_$2): ?>",
+            "\t\t$0",
+            "\t<?php endforeach; ?>",
+            "<?php endif; ?>"
+        ],
+        "description": "Create a PHP foreach loop to iterate over an array.*",
+        "prefix": "hpfe"
+    },
+    "HTML PHP If Else Block": {
+        "body": [
+            "<?php if($1 $2 $3){ ?>",
+            "\t$4",
+            "<?php } else { ?>",
+            "\t$0",
+            "<?php } ?>"
+        ],
+        "description": "Create a PHP If Block inside an HTML document.",
+        "prefix": "hpie"
+    },
+    "HTML PHP If Object Has Then Get Else": {
+        "body": [
+            "<?php if($$1->has$2()){ ?>",
+            "\t<?php $$1->get$2(); ?>",
+            "<?php } else { ?>",
+            "\t$0",
+            "<?php } ?>"
+        ],
+        "description": "Create a PHP statement to check if an object has a metric and then gets the metric and presents an else block.",
+        "prefix": "hpiohge"
+    },
+    "HTML Hidden Input Get PHP Variable for JavaScript": {
+        "prefix": "hhigpv",
+        "body": [
+            "<input type=\"hidden\" class=\"controller-variable\" id=\"$1\" name=\"$1\" value='<?php echo (isset($$1)) ? ((is_array($$1)) ? json_encode($$1) : $$1) : '' ; ?>'>"
+        ],
+        "description": "Create a hidden HTML input element to fetch a PHP variable for later use in a JS block."
+    },
+    "PHP If Has Get Else Placeholder": {
+        "body": [
+            "<?php if(\\$$1->has$2()){ ?>",
+            "\t<?php echo \\$$1->get$2(); ?>",
+            "<?php } else { ?>",
+            "\t$0",
+            "<?php } ?>"
+        ],
+        "description": "If object has some aspect, get (echo) that aspect, else output placeholder copy.",
+        "prefix": "pihgep"
+    },
+    "HTML Select From Collection": {
+        "prefix": "hsfc",
+        "body": [
+            "<select name=\"$1-id\" id=\"$1-id\" class=${2|\"\",\"admin-select\"|}>",
+            "\t<option value=\"none\">Select One:</option>",
+            "\t<?php foreach($${3:$1s} as $$1): ?>",
+            "\t\t<option value=\"<?php echo $$1->getId(); ?>\"><?php echo $$1->get$4(); ?></option>",
+            "\t<?php endforeach; ?>",
+            "</select>$0"
+        ],
+        "description": "Create a select block with options populated from an array of collection objects.*"
+    },
+    "PHP Ternary Isset Operator": {
+        "body": [
+            "<?php echo(isset(\\$$1)) ? '$4' : '$5' ; ?>$0"
+        ],
+        "description": "Create a PHP ternary operator statement which uses the php isset() check.*",
+        "prefix": "pti"
+    },
+    "HTML PHP Ternary Operator": {
+        "prefix": "hpt",
+        "body": [
+            "<?php echo(\\$$1 $2 $3) ? '$4' : '$5' ; ?>$0"
+        ],
+        "description": "Create a PHP ternary operator statement.*"
+    },
+    "HTML Div Element": {
+        "prefix": "hd",
+        "body": [
+            "div.$0"
+        ],
+        "description": "Create an HTML 'div' tagged element.*"
+    },
+    // "PHP Ternary Operator": {
+    //     "body": [
+    //         "<?php echo(\\$$1 $2 $3) ? '$4' : '$5' ; ?>$0"
+    //     ],
+    //     "description": "Create a PHP ternary operator statement.*",
+    //     "prefix": "pt"
+    // },
+    "Php echo php var if isset": {
+        "body": [
+            "<?php echo (isset(\\$$1)) ? \\$$1 : '$2'; ?>$0"
+        ],
+        "description": "Php if isset echo variable",
+        "prefix": "phpiiev"
+    },
+    "HTML Comment Begin": {
+        "prefix": "hcb",
+        "body": [
+            "<!-- -------- vvvvv $1 ------------------------------------------ -->$0"
+        ],
+        "description": "Create an HTML comment signifying the beginning of a block.*"
+    },
+    "HTML Comment End": {
+        "prefix": "hce",
+        "body": [
+            "<!-- -------- ^^^^^ $1 ------------------------------------------ -->$0"
+        ],
+        "description": "Create an HTML comment signifying the end of a block.*"
+    },
+    // "htmlcomment": {
+    //     "body": [
+    //         "<!-- $1 -->$0"
+    //     ],
+    //     "description": "html comment tag",
+    //     "prefix": "htmlc"
+    // },
+    "php": {
+        "body": [
+            "<?php $1 ?>"
+        ],
+        "description": "php tag",
+        "prefix": "php"
+    },
+    "phpget": {
+        "body": [
+            "<?php echo \\$$1->get$2(); ?>$0"
+        ],
+        "description": "php commented out here tag",
+        "prefix": "phpget"
+    },
+    "phphere": {
+        "body": [
+            "<!-- HERE -->$0"
+        ],
+        "description": "php commented out here tag",
+        "prefix": "phphere"
+    },
+    "HTML PHP If": {
+        "prefix": "hpi",
+        "body": [
+            "<?php if(\\$$1 $2 $3){ ?>",
+            "\t$0",
+            "<?php } ?>"
+        ],
+        "description": "Create a PHP If block inside an HTML file.*"
+    },
+    "phpincludefrontend": {
+        "body": [
+            "<?php include(\\$_SERVER['APPLICATION_ROOT'] . \"/apps/frontend/$1/$2.php\"); ?>$0"
+        ],
+        "description": "php include frontend file tag",
+        "prefix": "phpinfr"
+    },
+    "phpsaifelse": {
+        "body": [
+            "<?php if(Dinkly::getCurrentView() == 'analyze_sentiment'){ ?>",
+            "\t$0",
+            "<?php } else if(Dinkly::getCurrentView() == 'customer_analysis') { ?>",
+            "\t",
+            "<?php } ?>"
+        ],
+        "description": "php sentiment analysis if else tag",
+        "prefix": "phpsaie"
+    }
+}

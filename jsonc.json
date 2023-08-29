@@ -1,0 +1,24 @@
+{
+	"JSON New Snippet Block": {
+		"prefix": "jns",
+		"body": [
+			",",
+			"${1|\",\"JSON,\"HTML,\"PHP,\"Javascript,\"YAML|} $2\": {",
+			"\t\"prefix\": \"$3\",",
+			"\t\"body\": [",
+			"\t\t\"$0\"",
+			"\t],",
+			"\t\"description\": \"$4.\"",
+			"}"
+		],
+		"description": "Create a new JSON snippet block."
+	},
+	"JSON New Body Line": {
+		"prefix": "jnbl",
+		"body": [
+			",",
+			"\"$1\"$0"
+		],
+		"description": "Create a new body line inside of a snippet definition."
+	}
+}

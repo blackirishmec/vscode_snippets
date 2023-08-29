@@ -1,0 +1,426 @@
+{
+	"PHP Form Input": {
+		"prefix": "pfi",
+		"body": [
+			"<div class=\"mb-6\">",
+			"\t<label class=\"\"",
+			"\t\tfor=\"$0\"",
+			"\t>",
+			"\t",
+			"\t\t$0",
+			"\t</label>",
+			"\t",
+			"\t<input class=\"\"",
+			"\t\ttype=\"text\"",
+			"\t\tname=\"$0\"",
+			"\t\tid=\"$0\"",
+			"\t\trequired",
+			"\t>",
+			"\t",
+			"\t@error('$0')",
+			"\t\t<p class=\"\">{{ $message }}</p>",
+			"\t@enderror",
+			"</div>"
+		],
+		"description": "Create form input elements."
+	},
+	"PHP New Function": {
+		"prefix": "pnf",
+		"body": [
+			"${1|public,protected,private|} function $2($4)",
+			"{",
+			"\t$0",
+			"}",
+		],
+		"description": "Create a PHP function block."
+	},
+	"PHP New Closure": {
+		"prefix": "pnc",
+		"body": [
+			"function ($1) {",
+			"\t$0",
+			"}"
+		],
+		"description": "Create a new PHP closure."
+	},
+    "PHP Controller Ajax Endpoint Function": {
+        "body": [
+            "public function load$1($2)",
+            "{",
+            "\t\\$output = [",
+            "\t\t'success' => false",
+            "\t];",
+            "\t",
+            "\t$0",
+            "\t",
+            "\techo json_encode(\\$output);",
+            "\tdie();",
+            "\t",
+            "\treturn false;",
+            "}"
+        ],
+        "description": "Create a PHP controller Ajax endpoint function.*",
+        "prefix": "pcaef"
+    },
+    "PHP Debugging Breakpoint": {
+        "body": [
+            "////////////////// DEBUG FLAG //////////////////",
+            "\t\\$debugging = null;",
+            "////////////////// DEBUG FLAG //////////////////$0"
+        ],
+        "description": "Create a debugging breakpoint line in a PHP file.*",
+        "prefix": "pdb"
+    },
+    "PHP Dinkly Timer": {
+        "body": [
+            "Dinkly::timer('$1'${2:,'stop'}${3|),\\,true)|};$0"
+        ],
+        "description": "Create a Dinkly timer statement to log and/or print timer values to the error_log.php file.*",
+        "prefix": "pdt"
+    },
+    "PHP Echo Print": {
+        "body": [
+            "echo \"<pre>\";",
+            "print_r('$1')${2|;,;\ndie;|}$0"
+        ],
+        "description": "Print something.*",
+        "prefix": "pep"
+    },
+    "PHP Echo Print POST Die": {
+        "body": [
+            "echo \"<pre>\";",
+            "print_r(\\$_POST);",
+            "die;$0"
+        ],
+        "description": "PHP echo POST contents and then die.",
+        "prefix": "pepp"
+    },
+    "PHP Echo Print Weak Typed Variable and/or Die": {
+        "body": [
+            "echo \"<pre>\";",
+            "print_r('$1:');",
+            "echo \"<pre>\";",
+            "print_r${2|($,(|}$1)${3|;,;\ndie;|}$0"
+        ],
+        "description": "Print a weak typed object's contents and/or die;*",
+        "prefix": "pepwto"
+    },
+    "PHP For": {
+        "body": [
+            "for(\\$i = $1; \\$i ${2|<,<=,>,>=|} $3; \\$i${4|++,--|})",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Create a for loop to iterate over an array a set number of times.*",
+        "prefix": "pf"
+    },
+    // "PHP For Each": {
+    //     "body": [
+    //         "if($1 != array())",
+    //         "{",
+    //         "\tforeach($1 as \\$this_$2_object_index => \\$this_$2_object)",
+    //         "\t{",
+    //         "\t\t$0",
+    //         "\t}",
+    //         "}"
+    //     ],
+    //     "description": "Create a foreach loop.*",
+    //     "prefix": "pfe"
+    // },
+    "PHP For Each": {
+        "body": [
+            "if($1 != array())",
+            "{",
+            "\tforeach($1 as${3| , $index => |}\\$$2_object)",
+            "\t{",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+        "description": "Create a foreach loop.*",
+        "prefix": "pfe"
+    },
+    "PHP Get Collection": {
+        "body": [
+            "${2|$,$all_|}$1_objects = ${1/(.*)/${1:/pascalcase}/g}Collection::getAll(\\$this->db);$0"
+        ],
+        "description": "Load all database table objects into an array in local memory.*",
+        "prefix": "pgc"
+    },
+    "PHP Get Collection With": {
+        "body": [
+            "${2|$,$these_|}$1_objects = ${1/(.*)/${1:/pascalcase}/g}Collection::getWith(\\$this->db,array(",
+            "\t'$3' => $0",
+            "));"
+        ],
+        "description": "Load all database table objects into an array in local memory with an array of key value pairs.*",
+        "prefix": "pgcw"
+    },
+    "PHP Get DB object If Exists": {
+        "body": [
+            "${2|$,$this_|}$1 = new ${1/(.*)/${1:/pascalcase}/g}(\\$this->db);",
+            "$2$1->getOrInitializeDbObjectWith(array(",
+            "\t'$4' => $5",
+            "),\"\");",
+            "if(${2|$,$this_|}$1->objectExists())",
+            "{",
+            "\t$0",
+            "}",
+            "else",
+            "{",
+            "\tunset(${2|$,$this_|}$1);",
+            "}"
+        ],
+        "description": "Create a block of code to run the function getOrInitializeDbObjectWith() on a hydrated Db object and then follow it up with a ->ifObjectExists() check with else handling for unset() on the variable.*",
+        "prefix": "pgie"
+    },
+    "PHP Get Db Object Local": {
+        "body": [
+            "$$1 = new ${1/(.*)/${1:/pascalcase}/g}(\\$this->db);",
+            "$$1->initWith(array(",
+            "\t'$2' => $0",
+            "));"
+        ],
+        "description": "Bring a Dinkly database object into local memory.*",
+        "prefix": "pgdolw"
+    },
+    "PHP Get Or Initialize Db Object With": {
+        "body": [
+            "${2|$,$this_|}$1 = new ${1/(.*)/${1:/pascalcase}/g}(\\$this->db);",
+            "$2$1->getOrInitializeDbObjectWith(array(",
+            "\t'$4' => $0",
+            "),${3|\"save\",\"\"|});"
+        ],
+        "description": "Create a block of code to run the function getOrInitializeDbObjectWith() on a hydrated Db object.*",
+        "prefix": "pgoidow"
+    },
+    "PHP Get Posted Variable": {
+        "body": [
+            "if(\\$this->hasPostParam('$1'))",
+            "{",
+            "\t\\$$1 = \\$this->fetchPostParam('$1');",
+            "}$3"
+        ],
+        "description": "Hydrate a variable in the controller if corresponding posted value is found.*",
+        "prefix": "pgpv"
+    },
+    "PHP Hydrate Db Object Local": {
+        "body": [
+            "${2|$|}$1 = new ${1/(.*)/${1:/pascalcase}/g}(\\$this->db);$0"
+        ],
+        "description": "Hydrate a Dinkly database object into local memory.*",
+        "prefix": "phdol"
+    },
+    "PHP Hydrate Initialize Existing DB Object": {
+        "body": [
+            "${2|$|}$1 = new ${1/(.*)/${1:/pascalcase}/g}(\\$this->db);",
+            "${2|$|}$1->init($3);",
+            "if((${2|$|}$1 != null) && (${2|$|}$1->objectExists()))",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Hydrate and Initialize and Existing db object.*",
+        "prefix": "phiedo"
+    },
+    "PHP If Array Empty": {
+        "body": [
+            "if($1 != array())",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Create an if statement to test if an array is empty.*",
+        "prefix": "piae"
+    },
+    "PHP If Block": {
+        "body": [
+            "if($1)",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Create a PHP if block.*",
+        "prefix": "pif"
+    },
+    "PHP If Else Block": {
+        "body": [
+            "if($1)",
+            "{",
+            "\t$0",
+            "}",
+            "else",
+            "{",
+            "\t",
+            "}"
+        ],
+        "description": "Create a PHP if else block.*",
+        "prefix": "pie"
+    },
+    "PHP If Object Doesnt Exist Statement": {
+        "body": [
+            "if(($1 == null) || ($1->isNew()))",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Create an if statement to test if an object doesn't exist in the database.*",
+        "prefix": "piode"
+    },
+    "PHP If Object Exists Statement": {
+        "body": [
+            "if(($1 != null) && (! $1->isNew()))",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Create an if statement to test if an object exists in the database.*",
+        "prefix": "pioe"
+    },
+    "PHP Initialize Db Object Local": {
+        "body": [
+            "\\$$1->init($2);$0"
+        ],
+        "description": "Initialize a Dinkly database object in local memory.*",
+        "prefix": "pidol"
+    },
+    "PHP Initialize Db Object Local With": {
+        "body": [
+            "\\$$1->initWith(array(",
+            "\t'$2' => $0",
+            "));"
+        ],
+        "description": "Initialize a Dinkly database object in local memory with an array.*",
+        "prefix": "pidolw"
+    },
+    "PHP New Public Class Function": {
+        "body": [
+            "protected $$1 = ${3|null,false,array()|};",
+            "public function ${2|get,has,set|}${1/(.*)/${1:/pascalcase}/g}()",
+            "{",
+            "\tif(\\$this->$1 == $3)",
+            "\t{",
+            "\t\t$$1 = $3;",
+            "\t\t",
+            "\t\t$0",
+            "\t\t",
+            "\t\t\\$this->$1 = $$1;",
+            "\t}",
+            "\t",
+            "\treturn \\$this->$1;",
+            "}"
+        ],
+        "description": "Create a new public function for a class.*",
+        "prefix": "pnpcf"
+    },
+    "PHP New Public Class Join Getter Function": {
+        "body": [
+            "protected $$1 = null;",
+            "public function get${1/(.*)/${1:/pascalcase}/g}()",
+            "{",
+            "\tif(\\$this->$1 == null)",
+            "\t{",
+            "\t\t$$1 = null;",
+            "\t\t",
+            "\t\t\\$this_$1 = new ${1/(.*)/${1:/pascalcase}/g}(\\$this->db);",
+            "\t\t\\$this_$1->init(\\$this->get${1/(.*)/${1:/pascalcase}/g}Id());",
+            "\t\tif((\\$this_$1 != null) && (\\$this_$1->objectExists()))",
+            "\t\t{",
+            "\t\t\t$$1 = \\$this_$1;",
+            "\t\t}",
+            "\t\t",
+            "\t\t\\$this->$1 = $$1;",
+            "\t}",
+            "\t",
+            "\treturn \\$this->$1;",
+            "}$0"
+        ],
+        "description": "Create a new public function for a class.*",
+        "prefix": "pnpcjgf"
+    },
+    "PHP Pass to the View": {
+        "body": [
+            "\t\\$this->$1 = \\$$1;$0"
+        ],
+        "description": "Pass a variable or object from the controller to the view.*",
+        "prefix": "pptv"
+    },
+    "PHP Public Function": {
+        "body": [
+            "public function${2| , get|}${1/(.*)/${1:/pascalcase}/g}($3)",
+            "{",
+            "\t$0",
+            "\t",
+            "\treturn $$1;",
+            "}"
+        ],
+        "description": "Create a new public function.*",
+        "prefix": "ppf"
+    },
+    "PHP Testing Block": {
+        "body": [
+            "////////////////////// vvv TESTING vvv //////////////////////",
+            "\t",
+            "\t",
+            "\t// [$1/$2] $3",
+            "\t\t$0",
+            "\t",
+            "\t",
+            "\t",
+            "////////////////////// ^^^ TESTING ^^^ //////////////////////"
+        ],
+        "description": "Create a highly visible testing block to test PHP code.",
+        "prefix": "ptb"
+    },
+    "PHP Testing Block New Entry": {
+        "body": [
+            "// [$1/$2] $3",
+            "\t$0",
+            ""
+        ],
+        "description": "Create a new entry in a PHP testing block.",
+        "prefix": "ptbne"
+    },
+    "PHP While Loop": {
+        "body": [
+            "while($1)",
+            "{",
+            "\t$0",
+            "}"
+        ],
+        "description": "Create a PHP while loop to iterate until a condition has been met.*",
+        "prefix": "pwl"
+    },
+    "PHP usort Function": {
+        "body": [
+            "if(!function_exists('$1'))",
+            "{",
+            "\tfunction $1(\\$a,\\$b)",
+            "\t{",
+            "\t\t\\$${2:compare_}a = \\$a$3;",
+            "\t\t\\$${2:compare_}b = \\$b$3;",
+            "\t",
+            "\t\tif(\\$${2:compare_}a == \\$${2:compare_}b)",
+            "\t\t{",
+            "\t\t\t\\$return_value = 0;",
+            "\t\t}",
+            "\t\telse if(\\$${2:compare_}a ${7|<,>|} \\$${2:compare_}b)",
+            "\t\t{",
+            "\t\t\t\\$return_value = -1;",
+            "\t\t}",
+            "\t\telse",
+            "\t\t{",
+            "\t\t\t\\$return_value = 1;",
+            "\t\t}",
+            "\t",
+            "\t\treturn \\$return_value;",
+            "\t}",
+            "}",
+            "",
+            "usort(\\$$6,\"$1\");"
+        ],
+        "description": "Create a PHP 'usort' custom sorting function.*",
+        "prefix": "pus"
+    }
+}
